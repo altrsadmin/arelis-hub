@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme transitions */
+:root {
+  --transition-duration: 200ms;
+}
+
+html {
+  transition: background-color var(--transition-duration) ease-in-out;
+}
+
+html.dark {
+  background-color: #1a1e1f;
+  color-scheme: dark;
+}
+
+html.light {
+  background-color: #ffffff;
+  color-scheme: light;
+}
+
+/* Smooth transitions for theme changes */
+*,
+::before,
+::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: var(--transition-duration);
+}

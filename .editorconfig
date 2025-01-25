@@ -1,0 +1,31 @@
+# EditorConfig é um arquivo de configuração para manter consistência de código
+# entre diferentes editores e IDEs
+# https://editorconfig.org
+
+root = true
+
+[*]
+# Configurações gerais para todos os arquivos
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Configurações específicas para arquivos markdown
+[*.md]
+trim_trailing_whitespace = false
+
+# Configurações para arquivos TypeScript/JavaScript
+[*.{ts,tsx,js,jsx}]
+quote_type = single
+max_line_length = 100
+
+# Configurações para arquivos JSON
+[*.json]
+indent_size = 2
+
+# Configurações para arquivos HTML/CSS
+[*.{html,css,scss,sass}]
+indent_size = 2

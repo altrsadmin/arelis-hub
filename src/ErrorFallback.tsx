@@ -1,0 +1,41 @@
+import React from 'react';
+import { AlertTriangle } from 'lucide-react';
+import { Button } from './components/ui/Button';
+
+interface ErrorFallbackProps {
+  error?: Error;
+  resetError?: () => void;
+}
+
+export default function ErrorFallback({ error, resetError }: ErrorFallbackProps) {
+  return (
+    <div className="min-h-screen bg-[#282a36] flex items-center justify-center p-4">
+      <div className="max-w-md w-full bg-white dark:bg-gray-800 rounded-lg shadow-xl p-8">
+        <div className="flex items-center justify-center mb-6">
+          <div className="p-3 bg-red-100 dark:bg-red-900/20 rounded-full">
+            <AlertTriangle className="h-8 w-8 text-red-600 dark:text-red-400" />
+          </div>
+        </div>
+        
+        <h2 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-4">
+          Something went wrong
+        </h2>
+        
+        <p className="text-center text-gray-600 dark:text-gray-400 mb-6">
+          {error?.message || 'An unexpected error occurred. Please try again.'}
+        </p>
+
+        <div className="flex justify-center">
+          <Button
+            onClick={() => {
+              resetError?.();
+              window.location.reload();
+            }}
+          >
+            Try Again
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}
